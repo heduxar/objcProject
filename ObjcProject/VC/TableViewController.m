@@ -8,20 +8,28 @@
 
 #import "TableViewController.h"
 #import "CustomCell.h"
-
-@interface TableViewController ()
-
-@end
+#import "APIManager.h"
+#import "News.h"
+#import <SafariServices/SafariServices.h>
 
 @implementation TableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    __weak TableViewController *weakSelf = self;
+    [[APIManager sharedInstance] newsForRequest:[NSString stringWithFormat:@"Objective C"] withComplition:^(NSMutableArray * _Nonnull newsArray) {
+        if (newsArray.count > 0) {
+            weakSelf.newsfeed = newsArray;
+            [[weakSelf tableView] reloadData];
+        }
+    }];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.tableView.frame.size.width, 0.01)];
-//    self.tableView.estimatedRowHeight = 80.0;
+    
+//    self.tableView.estimatedRowHeight = 300;
 //    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -33,13 +41,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 4;
+    return _newsfeed.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -47,18 +53,31 @@
     if (!cell) {
         cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StandartCell"];
     }
-    cell.image.image = [UIImage imageNamed:@"Octocat"];
-    cell.titleLabel.text = @"Cat";
-    cell.secondaryLabel.text = @"Octocat";
+    [cell setNews:_newsfeed[indexPath.row]];
+//    [cell setNeedsUpdateConstraints];
+//    [cell updateConstraintsIfNeeded];
+    
     return cell;
 }
 
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 800.0;
+//}
+//
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    CustomCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return 256;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"Index Path: %@", indexPath);
+    
+    NSLog(@"url: %@", [_newsfeed[indexPath.row] url]);
+    NSURL *url = [[NSURL alloc] initWithString:[_newsfeed[indexPath.row] url]];
+    SFSafariViewController *safari = [[SFSafariViewController alloc] initWithURL:url entersReaderIfAvailable:YES];
+    [self presentViewController:safari animated:YES completion:nil];
+//        SFSafariViewController *sfvc = [[SFSafariViewController alloc] initWithURL:[_newsfeed[indexPath.row] url] configuration:YES];
+//        [self showViewController:sfvc sender:nil];
 }
 /*
 // Override to support conditional editing of the table view.

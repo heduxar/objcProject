@@ -54,9 +54,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.addUIView;
-    self.addUILabel;
-    self.addUIButton;
+    [self addUIView];
+    [self addUILabel];
+    [self addUIButton];
 }
 
 - (void)pushAnotherVC:(UIButton *)sender {

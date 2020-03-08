@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "News.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomCell : UITableViewCell
 
 @property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) UILabel *secondaryLabel;
+@property (nonatomic,strong) UILabel *dateLabel;
+@property (nonatomic,strong) UITextView *textView;
 @property (nonatomic,strong) UIImageView *image;
+
+@property (nonatomic, strong) News *news;
+- (void)setNews:(News *)news;
 
 @end
 

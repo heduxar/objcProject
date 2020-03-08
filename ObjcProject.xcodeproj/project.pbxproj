@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B4418082240CF6960080FCEB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4418081240CF6960080FCEB /* TableViewController.m */; };
 		B4418087240D1BF50080FCEB /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4418086240D1BF50080FCEB /* CustomCell.m */; };
+		B4856E072413E1EA00993478 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = B4856E062413E1EA00993478 /* News.m */; };
+		B4856E0B2413E99B00993478 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4856E0A2413E99B00993478 /* APIManager.m */; };
 		B48DE7BF2403CDE600E6AAF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B48DE7BE2403CDE600E6AAF4 /* AppDelegate.m */; };
 		B48DE7C22403CDE600E6AAF4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B48DE7C12403CDE600E6AAF4 /* ViewController.m */; };
 		B48DE7C72403CDE900E6AAF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B48DE7C62403CDE900E6AAF4 /* Assets.xcassets */; };
@@ -20,8 +22,12 @@
 /* Begin PBXFileReference section */
 		B4418080240CF6960080FCEB /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		B4418081240CF6960080FCEB /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		B4418085240D1BF50080FCEB /* CustomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = ObjcProject/View/CustomCell.h; sourceTree = SOURCE_ROOT; };
-		B4418086240D1BF50080FCEB /* CustomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = ObjcProject/View/CustomCell.m; sourceTree = SOURCE_ROOT; };
+		B4418085240D1BF50080FCEB /* CustomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = "ObjcProject/New Group/CustomCell.h"; sourceTree = SOURCE_ROOT; };
+		B4418086240D1BF50080FCEB /* CustomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = "ObjcProject/New Group/CustomCell.m"; sourceTree = SOURCE_ROOT; };
+		B4856E052413E1EA00993478 /* News.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		B4856E062413E1EA00993478 /* News.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		B4856E092413E99B00993478 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		B4856E0A2413E99B00993478 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		B48DE7BA2403CDE600E6AAF4 /* ObjcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48DE7BD2403CDE600E6AAF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B48DE7BE2403CDE600E6AAF4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -53,8 +59,6 @@
 				B48DE7D42403D32B00E6AAF4 /* UIComponentsVC.m */,
 				B4418080240CF6960080FCEB /* TableViewController.h */,
 				B4418081240CF6960080FCEB /* TableViewController.m */,
-				B4418085240D1BF50080FCEB /* CustomCell.h */,
-				B4418086240D1BF50080FCEB /* CustomCell.m */,
 				B48DE7C02403CDE600E6AAF4 /* ViewController.h */,
 				B48DE7C12403CDE600E6AAF4 /* ViewController.m */,
 			);
@@ -71,6 +75,34 @@
 				B48DE7C82403CDE900E6AAF4 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		B4856E032413DA3900993478 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4418085240D1BF50080FCEB /* CustomCell.h */,
+				B4418086240D1BF50080FCEB /* CustomCell.m */,
+			);
+			name = View;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B4856E042413E1C500993478 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B4856E052413E1EA00993478 /* News.h */,
+				B4856E062413E1EA00993478 /* News.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B4856E082413E8BC00993478 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B4856E092413E99B00993478 /* APIManager.h */,
+				B4856E0A2413E99B00993478 /* APIManager.m */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B48DE7B12403CDE600E6AAF4 = {
@@ -92,6 +124,9 @@
 		B48DE7BC2403CDE600E6AAF4 /* ObjcProject */ = {
 			isa = PBXGroup;
 			children = (
+				B4856E082413E8BC00993478 /* Services */,
+				B4856E042413E1C500993478 /* Model */,
+				B4856E032413DA3900993478 /* View */,
 				B4418084240CF79C0080FCEB /* Resource */,
 				B4418083240CF77F0080FCEB /* VC */,
 				B48DE7CB2403CDE900E6AAF4 /* Info.plist */,
@@ -169,8 +204,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B48DE7D52403D32B00E6AAF4 /* UIComponentsVC.m in Sources */,
+				B4856E072413E1EA00993478 /* News.m in Sources */,
 				B48DE7C22403CDE600E6AAF4 /* ViewController.m in Sources */,
 				B4418087240D1BF50080FCEB /* CustomCell.m in Sources */,
+				B4856E0B2413E99B00993478 /* APIManager.m in Sources */,
 				B48DE7CD2403CDE900E6AAF4 /* main.m in Sources */,
 				B4418082240CF6960080FCEB /* TableViewController.m in Sources */,
 				B48DE7BF2403CDE600E6AAF4 /* AppDelegate.m in Sources */,
