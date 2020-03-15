@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "UIComponentsVC.h"
-#import "TableViewController.h"
+#import "MapViewController.h"
 
 
 @implementation AppDelegate
@@ -19,8 +19,8 @@
     if (!self.window){
         self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
     }
-    TableViewController *table = [[TableViewController alloc] init];
-    table.title = @"TableViewController";
+    MapViewController *map = [[MapViewController alloc] init];
+    map.title = @"Map";
     
 //    UIComponentsVC *componetsViewController = [[UIComponentsVC alloc] init];
 //    componetsViewController.view.backgroundColor = [UIColor whiteColor];
@@ -28,7 +28,7 @@
 //    UIViewController *mainViewController = [[UIViewController alloc] init];
 //    mainViewController.view.backgroundColor = [UIColor redColor];
     
-    UINavigationController *mainNavController = [[UINavigationController alloc] initWithRootViewController:table];
+    UINavigationController *mainNavController = [[UINavigationController alloc] initWithRootViewController:map];
     mainNavController.navigationBar.translucent = NO;
     
     

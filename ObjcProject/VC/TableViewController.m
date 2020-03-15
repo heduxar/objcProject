@@ -65,7 +65,6 @@
 //}
 //
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CustomCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return 256;
 }
 
